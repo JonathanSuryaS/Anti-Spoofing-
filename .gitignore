@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Environment
+.env
+*.env
+.venv/
+env/
+
+# Data — never commit raw datasets
+data/raw/
+data/processed/
+
+# Model weights — use HuggingFace Hub instead
+results/checkpoints/*.ckpt
+results/checkpoints/*.pt
+results/checkpoints/*.pth
+*.onnx
+
+# Logs
+results/logs/
+wandb/
+*.log
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db

@@ -1,0 +1,17 @@
+# configs/efficientnet_b2.yaml
+# Track 2: EfficientNet-B2 fine-tuned from ImageNet weights
+
+defaults:
+  - base
+
+model:
+  name: efficientnet_b2
+  pretrained: true           # ImageNet weights via timm
+  num_classes: 2
+  dropout: 0.3
+  freeze_backbone_epochs: 5  # freeze backbone for first 5 epochs, then unfreeze
+
+training:
+  batch_size: 32
+  learning_rate: 5e-5        # lower LR for fine-tuning
+  max_epochs: 40
