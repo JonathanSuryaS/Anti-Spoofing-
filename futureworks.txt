@@ -1,0 +1,47 @@
+Future Work
+The current implementation establishes a working physical-attack face anti-spoofing
+pipeline (preprocessing → SPSC augmentation → backbone → evaluation). The following
+improvements were intentionally scoped out of the initial version and represent clear
+directions for extending the project.
+1. Face Alignment
+The current pipeline detects and crops faces but does not align them. Adding landmark-based
+alignment (using MTCNN's 5 facial landmarks + similarity transformation) would normalize
+eye and nose positions across all samples, reducing pose variance and likely improving
+accuracy. This is a standard step in many FAS papers that was skipped here to keep the
+preprocessing lightweight.
+2. Digital Attack Detection (SDSC)
+This project focuses solely on physical attacks (print, replay, 3D masks) via SPSC. The
+companion SDSC (Simulated Digital Spoofing Clues) branch from the original paper — which
+simulates deepfake and face-swap artifacts — was excluded due to dataset access constraints.
+Future work would incorporate a digital attack dataset (e.g. FaceForensics++, Celeb-DF) and
+reintroduce SDSC to build a unified physical-digital detector.
+3. Temporal Modeling
+Currently each frame is classified independently. Since the source data is video-based,
+aggregating predictions across frames (temporal averaging, or an LSTM/transformer over frame
+features) would produce more robust per-video decisions and reduce single-frame noise.
+4. Cross-Dataset Generalization
+The model is trained and evaluated on a combined OULU-NPU + AxonData set. A stronger
+evaluation would follow the standard FAS cross-domain protocol (e.g. train on three datasets,
+test on a held-out fourth) to measure true generalization rather than in-distribution
+performance. Metrics like HTER and AUC across domains would quantify this.
+5. Quality Filtering
+The preprocessing currently keeps all detected faces. Adding filters to reject profile views,
+severely rotated faces, or low-confidence detections would improve dataset quality and reduce
+label noise from poorly cropped samples.
+6. Larger and More Balanced Data
+The AxonData sample is small (84 videos) and the live/spoof balance is uneven. Acquiring
+larger datasets (CelebA-Spoof, full UniAttackData via institutional access) and balancing
+classes would improve both training stability and the reliability of reported metrics.
+7. Backbone Exploration
+The current backbone is a single pretrained CNN. Comparing alternatives — Swin Transformer,
+Vision Transformer with self-supervised pretraining (DINO), or lightweight mobile backbones
+for deployment — would clarify the accuracy/efficiency tradeoff and strengthen the analysis.
+8. Explainability
+Grad-CAM visualization is included to show where the model focuses. This could be extended
+with quantitative attention analysis (e.g. does the model attend to known spoofing artifacts
+like moiré regions or mask edges?) to validate that it learns meaningful cues rather than
+dataset shortcuts.
+9. Deployment
+A natural extension is wrapping the trained model in a real-time inference demo (webcam input
+via a Gradio or Streamlit interface) to demonstrate practical end-to-end usability beyond
+offline evaluation.
