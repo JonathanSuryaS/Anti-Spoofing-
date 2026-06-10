@@ -19,8 +19,8 @@ LIVE_FOLDER = ["Selfies"]
 
 
 def extract_axon_frames():
-    live_out = Path(OUTPUT_ROOT) / "live"
-    spoof_out = Path(OUTPUT_ROOT) / "spoof"
+    live_out  = Path(OUTPUT_ROOT) / "train" / "live"
+    spoof_out = Path(OUTPUT_ROOT) / "train" / "spoof"
 
     live_out.mkdir(parents=True, exist_ok=True)
     spoof_out.mkdir(parents=True, exist_ok=True)

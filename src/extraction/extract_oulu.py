@@ -15,7 +15,7 @@ OUTPUT_TRUE = r"C:\Users\user\Documents\GitHub\Anti-Spoofing-\data\processed"
 def process_oulu():
     for label_name, folder_path in [("live", OULU_TRUE), ("spoof", OULU_FALSE)]:
         images = sorted(Path(folder_path).glob("*.jpg"))
-        out_dir = Path(OUTPUT_TRUE) / label_name
+        out_dir = Path(OUTPUT_TRUE) / "train" / label_name
         out_dir.mkdir(parents=True, exist_ok=True)
         
         print(f"OULU {label_name}: {len(images)} images found")
