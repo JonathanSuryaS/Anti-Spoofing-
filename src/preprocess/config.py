@@ -34,7 +34,7 @@ TEST_KAGGLE_DIR = "test_kaggle"
 # Debug subset target: ~2k images. Flip these up for the 5090 run.
 CELEBA_LIVE_PER_SUBJECT  = 5
 CELEBA_SPOOF_PER_SUBJECT = 5
-CELEBA_MAX_SUBJECTS      = 500     # ~500 subj * (2+2) = ~2000 imgs
+CELEBA_MAX_SUBJECTS      = 10000     # ~500 subj * (2+2) = ~2000 imgs
 CELEBA_SEED              = 42
 
 # ── Kaggle test sampling ────────────────────────────────
