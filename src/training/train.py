@@ -27,8 +27,8 @@ from dataset.fas_dataset import FASDataset, TRAIN_SPLIT
 from models.fas_model import build_model
 
 # ── CONFIG ──────────────────────────────────────────────
-DATA_ROOT  = "/content/Anti-Spoofing-/data/processed_cropped"
-CKPT_PATH  = "/content/Anti-Spoofing-/checkpoints/resnet50_baseline.pth"
+DATA_ROOT  = r"C:\Users\user\Documents\GitHub\Anti-Spoofing-\data\processed_masked"
+CKPT_PATH  = r"C:\Users\user\Documents\GitHub\Anti-Spoofing-\results\checkpoints\resnet50_masked.pth"
 EPOCHS     = 10
 BATCH_SIZE = 32
 LR         = 1e-4

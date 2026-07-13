@@ -1,0 +1,8 @@
+| domain | model | eval_data | AUC | EER% | ACER@EER% | BPCER@APCER1% | achieved_APCER% | tau | APCER@0.5% | BPCER@0.5% | ACER@0.5% |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| test_oulu | baseline | processed_cropped | 0.8329 | 24.72 | 24.72 | 83.97 | 0.96 | 0.000 | 71.28 | 0.87 | 36.08 |
+| test_oulu | spsc | processed_cropped | 0.8066 | 26.63 | 26.63 | 93.88 | 0.96 | 0.000 | 67.45 | 3.50 | 35.48 |
+| test_oulu | masked | processed_masked | 0.6971 | 35.31 | 35.31 | 95.92 | 0.96 | 0.003 | 51.91 | 19.24 | 35.58 |
+| test_kaggle | baseline | processed_cropped | 0.8156 | 29.63 | 29.63 | 77.78 | 0.74 | 0.155 | 4.44 | 64.81 | 34.63 |
+| test_kaggle | spsc | processed_cropped | 0.7917 | 28.33 | 28.33 | 87.04 | 0.74 | 0.005 | 11.11 | 57.41 | 34.26 |
+| test_kaggle | masked | processed_masked | 0.8295 | 26.67 | 26.67 | 83.33 | 0.74 | 0.064 | 3.70 | 75.93 | 39.81 |
